@@ -1,0 +1,31 @@
+package Tugas.Fibonaci;
+
+    import java.util.Scanner;
+
+public class TugasFibonaci {
+
+
+    public static void main(String[] args) {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Masukkan jumlah elemen deret Fibonacci yang diinginkan: ");
+            int n = scanner.nextInt();
+            
+            if (n <= 0) {
+                System.out.println("Jumlah elemen harus lebih besar dari 0.");
+            } else {
+                System.out.println("Deret Fibonacci hingga " + n + " elemen:");
+                for (int i = 0; i < n; i++) {
+                    System.out.print(fibonacci(i) + " ");
+                }
+            }
+        }
+    }
+
+    public static int fibonacci(int num) {
+        return switch (num) {
+            case 0 -> 0;
+            case 1 -> 1;
+            default -> fibonacci(num - 1) + fibonacci(num - 2);
+        };
+    }
+}
